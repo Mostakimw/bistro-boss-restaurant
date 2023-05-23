@@ -16,7 +16,7 @@ const PopularMenu = () => {
       });
   }, []);
   return (
-    <div className="my-12">
+    <div className="my-12 max-w-screen-xl mx-auto ">
       <SectionTitle
         subtitle="check it out"
         title="from our menu"

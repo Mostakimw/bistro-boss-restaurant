@@ -13,7 +13,7 @@ import slider6 from "../../../assets/home/slide2.jpg";
 
 const Category = () => {
   return (
-    <div className="mb-20 mt-12">
+    <div className="mb-20 mt-12 max-w-screen-xl mx-auto ">
       <SectionTitle
         subtitle="from 11:00am to 10:00 pm"
         title="order online"
