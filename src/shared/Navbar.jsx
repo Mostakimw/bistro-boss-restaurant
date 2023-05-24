@@ -9,6 +9,9 @@ const Navbar = () => {
       <li>
         <Link to="/menu">Menu</Link>
       </li>
+      <li>
+        <Link to="/food">Food</Link>
+      </li>
     </>
   );
   return (
