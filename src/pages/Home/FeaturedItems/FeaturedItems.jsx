@@ -22,6 +22,9 @@ const FeaturedItems = () => {
             non quo expedita nulla sit qui aspernatur deserunt minus inventore
             recusandae cum molestiae nobis quasi, neque sunt?
           </p>
+          <button className="btn btn-outline border-0 border-b-4 text-white mt-3">
+            Read More
+          </button>
         </div>
       </div>
     </div>
