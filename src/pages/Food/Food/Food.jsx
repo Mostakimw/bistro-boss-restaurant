@@ -6,6 +6,7 @@ import "react-tabs/style/react-tabs.css";
 import useMenu from "../../../hooks/useMenu/useMenu";
 import FoodTab from "../FoodTab/FoodTab";
 import { useParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const Food = () => {
   const categories = ["salad", "pizza", "soup", "desserts", "drinks"];
@@ -20,6 +21,9 @@ const Food = () => {
   const salads = menu.filter((item) => item.category === "salad");
   return (
     <div className="max-w-screen-xl mx-auto">
+      <Helmet>
+        <title>Order Food | Bistro Boss</title>
+      </Helmet>
       <Cover
         title="Order Food"
         description="Would You Like To Try Our Dish?"
