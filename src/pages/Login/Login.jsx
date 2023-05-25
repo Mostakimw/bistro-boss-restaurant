@@ -13,7 +13,6 @@ const Login = () => {
   const [disabled, setDisabled] = useState(true);
 
   const navigate = useNavigate();
-  console.log(navigate);
 
   //   ! captcha generator
   useEffect(() => {
@@ -29,6 +28,7 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         console.log(result.user);
+        navigate("/");
       })
       .catch((error) => {
         console.log(error.message);
