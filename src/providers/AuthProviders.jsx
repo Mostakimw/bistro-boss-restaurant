@@ -8,7 +8,7 @@ import {
 } from "firebase/auth";
 import { app } from "../firebase/firebase.config";
 
-const AuthContext = createContext(null);
+export const AuthContext = createContext(null);
 const auth = getAuth(app);
 
 const AuthProviders = ({ children }) => {
@@ -29,7 +29,7 @@ const AuthProviders = ({ children }) => {
 
   const logOut = () => {
     setLoading(true);
-    return signOut();
+    return signOut(auth);
   };
 
   //observer
