@@ -6,7 +6,7 @@ import { AuthContext } from "../../providers/AuthProviders";
 import Swal from "sweetalert2";
 
 const Register = () => {
-  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const { createUser, updateUserProfile, logOut } = useContext(AuthContext);
   const navigate = useNavigate();
   const {
     register,
@@ -18,7 +18,7 @@ const Register = () => {
     console.log(data);
     createUser(data?.email, data?.password).then((result) => {
       console.log(result.user);
-      updateUserProfile(data?.name);
+
       Swal.fire({
         title: "You Have Successfully Registered",
         showClass: {
@@ -28,7 +28,9 @@ const Register = () => {
           popup: "animate__animated animate__fadeOutUp",
         },
       });
-      navigate("/");
+      updateUserProfile(data?.name).then(() => {
+        logOut().then(() => navigate("/login"));
+      });
     });
   };
   return (

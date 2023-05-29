@@ -20,7 +20,7 @@ const Food = () => {
   const soup = menu.filter((item) => item.category === "soup");
   const salads = menu.filter((item) => item.category === "salad");
   return (
-    <div className="max-w-screen-xl mx-auto">
+    <div>
       <Helmet>
         <title>Order Food | Bistro Boss</title>
       </Helmet>
@@ -29,7 +29,11 @@ const Food = () => {
         description="Would You Like To Try Our Dish?"
         image={foodImg}
       ></Cover>
-      <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
+      <Tabs
+        className="max-w-screen-xl mx-auto"
+        selectedIndex={tabIndex}
+        onSelect={(index) => setTabIndex(index)}
+      >
         <TabList>
           <Tab>SALAD</Tab>
           <Tab>PIZZA</Tab>
