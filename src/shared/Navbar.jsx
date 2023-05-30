@@ -25,9 +25,11 @@ const Navbar = () => {
       </li>
       <li>
         <Link to="/dashboard/mycart">
-          <button className="btn gap-2">
+          <button className="inline-flex items-center gap-2">
             <FaShoppingCart />{" "}
-            <div className="badge badge-secondary">+{cart?.length || 0}</div>
+            <div className="badge bg-red-400 border-0">
+              +{cart?.length || 0}
+            </div>
           </button>
         </Link>
       </li>
