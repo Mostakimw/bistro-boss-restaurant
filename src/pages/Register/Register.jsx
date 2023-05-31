@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProviders";
 import Swal from "sweetalert2";
+import SocialLogin from "../Login/SocialLogin";
 
 const Register = () => {
   const { createUser, updateUserProfile, logOut } = useContext(AuthContext);
@@ -15,7 +16,6 @@ const Register = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
     createUser(data?.email, data?.password).then((result) => {
       console.log(result.user);
 
@@ -28,11 +28,25 @@ const Register = () => {
           popup: "animate__animated animate__fadeOutUp",
         },
       });
+
       updateUserProfile(data?.name).then(() => {
-        logOut().then(() => navigate("/login"));
+        const user = { name: data?.name, email: data?.email };
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(user),
+        })
+          .then((res) => res.json())
+          .then(() => {});
+        logOut().then(() => {
+          navigate("/login");
+        });
       });
     });
   };
+
   return (
     <div>
       <Helmet>
@@ -115,6 +129,7 @@ const Register = () => {
                 Already Have an account? <Link to="/login">Login</Link>{" "}
               </small>
             </p>
+            <SocialLogin />
           </div>
         </div>
       </div>
