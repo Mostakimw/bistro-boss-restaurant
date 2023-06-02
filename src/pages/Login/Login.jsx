@@ -10,6 +10,7 @@ import { AuthContext } from "../../providers/AuthProviders";
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
+  const [error, setError] = useState(" ");
   const [disabled, setDisabled] = useState(true);
 
   const navigate = useNavigate();
@@ -32,8 +33,8 @@ const Login = () => {
         console.log(result.user);
         navigate(from, { replace: true });
       })
-      .catch((error) => {
-        console.log(error.message);
+      .catch(() => {
+        setError("Email Or Pass Doesn't Match");
       });
   };
 
@@ -65,6 +66,7 @@ const Login = () => {
           </div>
           <div className="card md:w-1/2 max-w-sm shadow-2xl bg-base-100">
             <form onSubmit={handleLogin} className="card-body">
+              <p className="text-error">{error}</p>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
