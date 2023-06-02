@@ -112,7 +112,7 @@ const Login = () => {
                   className="btn btn-primary"
                   type="submit"
                   value="Login"
-                  disabled={disabled}
+                  disabled={false}
                 />
               </div>
             </form>

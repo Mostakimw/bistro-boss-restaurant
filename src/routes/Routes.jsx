@@ -9,10 +9,12 @@ import DashboardLayout from "../layout/DashboardLayout";
 import MyCart from "../pages/Dashboard/MyCart/MyCart";
 import PrivateRoutes from "./PrivateRoutes";
 import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
+// import Error from "../pages/Error/Error";
 
 const router = createBrowserRouter([
   {
     path: "/",
+    // errorElement: <Error />,
     element: <MainLayout />,
     children: [
       {
