@@ -2,6 +2,8 @@ import { FaTrashAlt } from "react-icons/fa";
 import useCart from "../../../hooks/useCart/useCart";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
+import SectionTitle from "../../../components/SectionTitle/SectionTitle";
+import { Link } from "react-router-dom";
 
 const MyCart = () => {
   const [cart, refetch] = useCart();
@@ -31,17 +33,20 @@ const MyCart = () => {
     });
   };
   return (
-    <div className="w-9/12">
+    <div className="w-full">
       <Helmet>
         <title>My-Cart | Bistro Boss</title>
       </Helmet>
-      <div className="flex justify-between gap-20 mb-10 items-center">
+      <SectionTitle title="see item" subtitle="Your Cart"></SectionTitle>
+      <div className="flex justify-between mb-10 px-10 items-center">
         <h1 className="text-2xl font-bold">My Cart: {cart?.length}</h1>
         <h1 className="text-2xl font-bold">Total Price: {result}</h1>
-        <button className="btn btn-xs">Pay</button>
+        <Link to="/dashboard/payment">
+          <button className="btn btn-xs">Pay</button>
+        </Link>
       </div>
-      <div className="overflow-x-auto w-full ">
-        <table className="table w-full">
+      <div className="overflow-x-auto mx-10">
+        <table className="table table-zebra w-full">
           {/* head */}
           <thead>
             <tr>
